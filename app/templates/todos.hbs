@@ -1,0 +1,22 @@
+{{page-title "Todos"}}
+<div class="center-content top-content">
+<div class="header"> 
+      <h1>Todo Application</h1>
+      <p class="todo-count">Number of Todos= {{this.todos.length}}</p>
+</div>
+{{ this.title }}
+
+<input {{on "input" this.updateNewTodoTitle}} value={{this.newTodoTitle}} type="text" placeholder="New Todo Title">
+<br>
+<br>
+<button {{on "click" this.addTodo}}>Add Todo</button>
+<br>
+<ul class="todo-list">
+      {{#each this.todos as |todo|}}
+      <li data-todo="{{todo}}">
+            {{todo}}
+            <button class="done-button" {{on "click" (fn this.deleteTodo todo)}}>Done</button>
+            </li>
+      {{/each}}
+</ul>
+</div>
